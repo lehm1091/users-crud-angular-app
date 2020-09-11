@@ -58,6 +58,7 @@
                 <h5 class="card-title">{{title}}</h5>
 
                 <table class="table">
+                    <tr *ngIf="usersList.length===0">Aun no se han guardado registros.</tr>
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">
@@ -106,6 +107,10 @@
                     </thead>
 
                 </table>
+
+                <div class="row">
+                    <button class="btn btn-danger" (click)="deleteAll()" >Borrar todo</button>
+                </div>
 
         </div>
     </div>

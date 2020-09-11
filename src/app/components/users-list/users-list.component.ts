@@ -38,8 +38,7 @@ export class UsersListComponent implements OnInit {
 
   saveUser() {
 
-   
-    
+  
       this.usersService.save2(this.user).subscribe(
         response => {
           console.log(response);
@@ -67,7 +66,7 @@ export class UsersListComponent implements OnInit {
   getUsers() {
     this.usersService.getAll2().subscribe(
       response => {
-        console.log(response);
+     
         this.usersList = response;
       },
       error => {
@@ -88,6 +87,11 @@ export class UsersListComponent implements OnInit {
     this.getUsers();
   }
 
+  deleteAll(){
+    
+    this.usersService.deleteAll();
+    this.getUsers();
+  }
 
 }
 

@@ -114,7 +114,7 @@ export class UsersService {
 
   }
 
-  clearList(): void {
+  deleteAll(): void {
     localStorage.removeItem('LOCAL_STORAGE_ITEM_NAME');
 
   }
