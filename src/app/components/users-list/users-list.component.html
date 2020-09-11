@@ -1,7 +1,7 @@
 <div class="container-fluid p-0 m-0">
     <div class="card-header text-center mb-3" > <h3 class="card-title text-center">Usuarios</h3></div>
 
-    <div class="container my-4 border-bottom py-3">
+    <div class="container my-4 border-bottom py-3 px-1">
         
             <h5 class="card-title">{{leftTittle}}</h5>
 
@@ -52,12 +52,11 @@
             <button class="btn btn-primary" (click)="saveUser()" [disabled]=" !this.name.valid || !this.email.valid">Guardar</button>
         </div>
 
-        <div class="container">
+        <div class="container px-1">
           
 
                 <h5 class="card-title">{{title}}</h5>
                 <div class="table-responsive-sm">
-
                 <table class="table">
                     <tr *ngIf="usersList.length===0">Aun no se han guardado registros.</tr>
                     <thead class="thead-dark">
