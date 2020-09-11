@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersListComponent } from './components/users-list/users-list.component';
-import {UsersService} from 'src/app/services/users.service';
+import {UsersService} from './services/users.service';
 import { FormsModule } from "@angular/forms";
+import { User } from './models/user.model';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent
+    UsersListComponent,
+    User
   ],
   imports: [
     BrowserModule,

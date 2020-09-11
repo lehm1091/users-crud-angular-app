@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { Observable, Observer } from 'rxjs';
-import { User } from 'src/app/components/user';
+import { User } from '../models/user.model';
 
 
 const LOCAL_STORAGE_ITEM_NAME = 'users';
