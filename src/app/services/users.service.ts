@@ -1,5 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
-import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { User } from '../models/user.model';
 
