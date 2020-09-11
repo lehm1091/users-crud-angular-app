@@ -1,0 +1,137 @@
+<div class="container ">
+    <h4 class="card-title text-center">Usuarios</h4>
+    
+    <div class="row">
+
+
+
+        <div class="col-4 ">
+
+            <div class="card-body">
+                <h4 class="card-title text-center">{{leftTittle}}</h4>
+                <div class="container-fluid">
+
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="name">Name</label>
+                        <div class="col-md-9 input-group">
+                            <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required
+                                minlength="3" #name="ngModel" name="name"
+                                [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
+
+
+                            <small *ngIf="name.invalid " class="invalid-feedback">
+                                <script>
+
+                                </script>
+                                <div *ngIf="name.errors.required">
+                                    Name is required.
+                                </div>
+                                <div *ngIf="name.errors.minlength">
+                                    Name must be atleast 3 characters long.
+                                </div>
+                            </small>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="name">email</label>
+                        <div class="col-md-9 input-group">
+                            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" required
+                                #email="ngModel" name="email" email
+                                [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
+
+
+                            <small *ngIf="name.invalid " class="invalid-feedback">
+                                <script>
+
+                                </script>
+                                <div *ngIf="name.errors.required">
+                                    Name is required.
+                                </div>
+                                <div *ngIf="name.errors.email">
+                                    Email must be well formated
+                                </div>
+                            </small>
+
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" (click)="saveUser()">Guardar</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+  
+
+    <div class="col-8 ">
+        <div class="card-body">
+            <h4 class="card-title text-center">{{title}}</h4>
+            <div class="container-fluid">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                id
+                            </th>
+                            <th scope="col">
+                                Nombre
+                            </th>
+                            <th scope="col">
+                                Correo
+                            </th>
+
+                        </tr>
+
+                        <tr *ngFor="let item of usersList; let i=index">
+                            <td>
+                                <span class="badge badge-primary badge-pill ">{{item.id}}</span>
+                            </td>
+                            <td>
+                                <span class="">{{item.name}}</span>
+                            </td>
+                            <td>
+                                <span class="">{{item.email}}</span>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-sm btn-secondary"
+                                  (click)="deleteUser(item)">Delete</button>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-sm btn-secondary"
+                                  (click)="editUser(item)">Edit</button>
+                            </td>
+
+
+
+
+
+
+                        </tr>
+
+                    </thead>
+
+                </table>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+</div>
