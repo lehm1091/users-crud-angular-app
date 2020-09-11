@@ -107,9 +107,6 @@ export class UsersService {
     }
     return new Observable((observer: Observer<any>) => {
       observer.next(response);
-      if (response.length === 0) {
-        observer.next("user list didnt existed in local storage");
-      }
     });
 
   }
