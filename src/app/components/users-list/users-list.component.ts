@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-
 import { UsersService } from '../../services//users.service';
 
 
@@ -17,13 +16,15 @@ export class UsersListComponent implements OnInit {
   user: User;
   formIsSumited;
 
+
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
 
     let number = this.ramdomNumber();
-    this.user = { id: null, name: `name${number}`, email: `name${number}@correo` };
-    this.formIsSumited = false;
+    this.user = { id: null, name: `Nombre Aleatorio${number}`, email: `Nombre_Aleatorio_${number}@correo` };
+    this.formIsSumited = true;
+  
     this.getUsers();
 
 
@@ -37,17 +38,22 @@ export class UsersListComponent implements OnInit {
 
   saveUser() {
 
-    this.usersService.save2(this.user).subscribe(
-      response => {
-        console.log(response);
-      }
-    );
-    let number = this.ramdomNumber();
-    this.user = { id: null, name: `name${number}`, email: `name${number}@correo` };
+   
+    
+      this.usersService.save2(this.user).subscribe(
+        response => {
+          console.log(response);
+        }
+      );
+      let number = this.ramdomNumber();
+      this.user = { id: null, name: `Nombre Aleatorio${number}`, email: `Nombre_Aleatorio_${number}@correo` };
 
-    this.getUsers();
+      this.getUsers();
 
-    this.leftTittle = "Nuevo Usuario";
+      this.leftTittle = "Nuevo Usuario";
+      this.formIsSumited = false;
+
+    
   }
 
   editUser(user: User) {
