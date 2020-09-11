@@ -14,7 +14,6 @@ export class UsersListComponent implements OnInit {
   leftTittle = "Nuevo Usuario"
   usersList: User[];
   user: User;
-  formIsSumited;
 
 
   constructor(private usersService: UsersService) { }
@@ -23,8 +22,8 @@ export class UsersListComponent implements OnInit {
 
     let number = this.ramdomNumber();
     this.user = { id: null, name: `Nombre Aleatorio${number}`, email: `Nombre_Aleatorio_${number}@correo` };
-    this.formIsSumited = true;
-  
+
+
     this.getUsers();
 
 
@@ -38,21 +37,21 @@ export class UsersListComponent implements OnInit {
 
   saveUser() {
 
-  
-      this.usersService.save2(this.user).subscribe(
-        response => {
-          console.log(response);
-        }
-      );
-      let number = this.ramdomNumber();
-      this.user = { id: null, name: `Nombre Aleatorio${number}`, email: `Nombre_Aleatorio_${number}@correo` };
 
-      this.getUsers();
+    this.usersService.save2(this.user).subscribe(
+      response => {
+        console.log(response);
+      }
+    );
+    let number = this.ramdomNumber();
+    this.user = { id: null, name: `Nombre Aleatorio${number}`, email: `Nombre_Aleatorio_${number}@correo` };
 
-      this.leftTittle = "Nuevo Usuario";
-      this.formIsSumited = false;
+    this.getUsers();
 
-    
+    this.leftTittle = "Nuevo Usuario";
+
+
+
   }
 
   editUser(user: User) {
@@ -66,7 +65,7 @@ export class UsersListComponent implements OnInit {
   getUsers() {
     this.usersService.getAll2().subscribe(
       response => {
-     
+
         this.usersList = response;
       },
       error => {
@@ -87,8 +86,8 @@ export class UsersListComponent implements OnInit {
     this.getUsers();
   }
 
-  deleteAll(){
-    
+  deleteAll() {
+
     this.usersService.deleteAll();
     this.getUsers();
   }

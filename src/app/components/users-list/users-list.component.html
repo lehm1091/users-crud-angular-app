@@ -9,7 +9,7 @@
                 <label class="col-md-3 col-form-label" for="name">Nombre</label>
                 <div class="col-md-9 input-group">
                     <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required minlength="3"
-                        #name="ngModel" name="name" [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
+                        #name="ngModel" name="name" [ngClass]="{'is-invalid': !this.name.valid}">
 
 
                     <small *ngIf="name.invalid " class="invalid-feedback">
@@ -32,7 +32,7 @@
                 <div class="col-md-9 input-group">
                     <input type="text" class="form-control" id="email" [(ngModel)]="user.email" required
                         #email="ngModel" name="email" email
-                        [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
+                        [ngClass]="{'is-invalid': !this.email.valid}">
 
                     <small *ngIf="email.invalid " class="invalid-feedback">
                         <script>
