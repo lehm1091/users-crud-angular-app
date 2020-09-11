@@ -1,79 +1,69 @@
 <div class="container ">
     <h4 class="card-title text-center">Usuarios</h4>
-    
-    <div class="row">
 
 
 
-        <div class="col-4 ">
-
-            <div class="card-body">
-                <h4 class="card-title text-center">{{leftTittle}}</h4>
-                <div class="container-fluid">
-
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="name">Name</label>
-                        <div class="col-md-9 input-group">
-                            <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required
-                                minlength="3" #name="ngModel" name="name"
-                                [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
 
 
-                            <small *ngIf="name.invalid " class="invalid-feedback">
-                                <script>
+    <div class="container-fluid">
+        <div class="card-body">
+            <h4 class="card-title text-center">{{leftTittle}}</h4>
 
-                                </script>
-                                <div *ngIf="name.errors.required">
-                                    Name is required.
-                                </div>
-                                <div *ngIf="name.errors.minlength">
-                                    Name must be atleast 3 characters long.
-                                </div>
-                            </small>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="name">Name</label>
+                <div class="col-md-9 input-group">
+                    <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required minlength="3"
+                        #name="ngModel" name="name" [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
 
+
+                    <small *ngIf="name.invalid " class="invalid-feedback">
+                        <script>
+
+                        </script>
+                        <div *ngIf="name.errors.required">
+                            Name is required.
                         </div>
-
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="name">email</label>
-                        <div class="col-md-9 input-group">
-                            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" required
-                                #email="ngModel" name="email" email
-                                [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
-
-
-                            <small *ngIf="name.invalid " class="invalid-feedback">
-                                <script>
-
-                                </script>
-                                <div *ngIf="name.errors.required">
-                                    Name is required.
-                                </div>
-                                <div *ngIf="name.errors.email">
-                                    Email must be well formated
-                                </div>
-                            </small>
-
+                        <div *ngIf="name.errors.minlength">
+                            Name must be atleast 3 characters long.
                         </div>
-                    </div>
+                    </small>
 
-                    <button class="btn btn-primary" (click)="saveUser()">Guardar</button>
                 </div>
 
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="name">email</label>
+                <div class="col-md-9 input-group">
+                    <input type="text" class="form-control" id="email" [(ngModel)]="user.email" required
+                        #email="ngModel" name="email" email
+                        [ngClass]="{'is-invalid': formIsSumited && !this.name.valid}">
 
+
+                    <small *ngIf="name.invalid " class="invalid-feedback">
+                        <script>
+
+                        </script>
+                        <div *ngIf="name.errors.required">
+                            Name is required.
+                        </div>
+                        <div *ngIf="name.errors.email">
+                            Email must be well formated
+                        </div>
+                    </small>
+
+                </div>
             </div>
 
-
+            <button class="btn btn-primary" (click)="saveUser()">Guardar</button>
         </div>
 
-  
+        <div class="container-fluid">
+            <div class="card-body">
 
-    <div class="col-8 ">
-        <div class="card-body">
-            <h4 class="card-title text-center">{{title}}</h4>
-            <div class="container-fluid">
-                <table class="table ">
-                    <thead>
+                <h4 class="card-title text-center">{{title}}</h4>
+
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">
                                 id
@@ -84,6 +74,12 @@
                             <th scope="col">
                                 Correo
                             </th>
+                            <th scope="col">
+
+                            </th>
+                            <th scope="col">
+
+                            </th>
 
                         </tr>
 
@@ -92,26 +88,25 @@
                                 <span class="badge badge-primary badge-pill ">{{item.id}}</span>
                             </td>
                             <td>
-                                <span class="">{{item.name}}</span>
+                                {{item.name}}
                             </td>
                             <td>
-                                <span class="">{{item.email}}</span>
+                                {{item.email}}
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                    (click)="deleteUser(item)">Borrar</button>
+
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-search"></span> Search
+                                      </button>
                             </td>
 
                             <td>
                                 <button type="button" class="btn btn-sm btn-secondary"
-                                  (click)="deleteUser(item)">Delete</button>
+                                    (click)="editUser(item)">Editar</button>
                             </td>
-
-                            <td>
-                                <button type="button" class="btn btn-sm btn-secondary"
-                                  (click)="editUser(item)">Edit</button>
-                            </td>
-
-
-
-
-
 
                         </tr>
 
@@ -119,18 +114,18 @@
 
                 </table>
 
+
             </div>
+
+
+
+
+
+
+
+
         </div>
-
-
-
-
-
-
-
-
     </div>
-</div>
 
 
 
