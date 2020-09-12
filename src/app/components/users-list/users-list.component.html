@@ -8,10 +8,10 @@
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="name">Nombre</label>
                 <div class="col-md-9 input-group">
-                    <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required minlength="3"
-                        #name="ngModel" name="name" [ngClass]="{'is-invalid': !this.name.valid}">
-
-
+                    <input type="text" class="form-control" id="name" [(ngModel)]="user.name" required minlength="3" 
+                    (ngModelChange)="setFormSubmited(true)"
+                        #name="ngModel" name="name"
+                        [ngClass]="{'is-invalid': name.invalid && formSubmited  }">
                     <small *ngIf="name.invalid " class="invalid-feedback">
                         <script>
                         
@@ -32,7 +32,8 @@
                 <div class="col-md-9 input-group">
                     <input type="text" class="form-control" id="email" [(ngModel)]="user.email" required
                         #email="ngModel" name="email" email
-                        [ngClass]="{'is-invalid': !this.email.valid}">
+                        (ngModelChange)="setFormSubmited(true)"
+                        [ngClass]="{'is-invalid': !this.email.valid && formSubmited}">
 
                     <small *ngIf="email.invalid " class="invalid-feedback">
                         <script>
@@ -99,7 +100,7 @@
 
                             <td>
                                 <button type="button" class="btn btn-sm btn-secondary"
-                                    (click)="editUser(item)" > Editar</button>
+                                    (click)="setUserToEdit(item)" > Editar</button>
                             </td>
 
                         </tr>
